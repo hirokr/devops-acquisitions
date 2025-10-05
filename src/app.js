@@ -8,7 +8,6 @@ import authRoutes from '#routes/auth.route.js';
 
 const app = express();
 
-
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
