@@ -9,10 +9,12 @@ This directory contains GitHub Actions workflows for automated testing, linting,
 **Purpose:** Ensures code quality by running ESLint and Prettier checks.
 
 **Triggers:**
+
 - Push to `main` or `staging` branches
 - Pull requests to `main` or `staging` branches
 
 **What it does:**
+
 1. Sets up Node.js 20.x with npm caching
 2. Installs dependencies with `npm ci`
 3. Runs ESLint to check for code issues
@@ -21,10 +23,12 @@ This directory contains GitHub Actions workflows for automated testing, linting,
 6. Generates a detailed summary in GitHub Actions
 
 **Fixing Issues:**
+
 - **ESLint issues:** Run `npm run lint:fix`
 - **Prettier issues:** Run `npm run format`
 
 **Status Badge:**
+
 ```markdown
 ![Lint and Format](https://github.com/hirokr/devops-acquisitions/actions/workflows/lint-and-format.yml/badge.svg)
 ```
@@ -36,10 +40,12 @@ This directory contains GitHub Actions workflows for automated testing, linting,
 **Purpose:** Runs the test suite and generates coverage reports.
 
 **Triggers:**
+
 - Push to `main` or `staging` branches
 - Pull requests to `main` or `staging` branches
 
 **What it does:**
+
 1. Sets up Node.js 20.x with npm caching
 2. Installs dependencies with `npm ci`
 3. Runs Jest tests with environment variables:
@@ -51,11 +57,13 @@ This directory contains GitHub Actions workflows for automated testing, linting,
 6. Annotates test failures with actionable suggestions
 
 **Artifacts:**
+
 - Coverage reports are available for download for 30 days
 - HTML coverage report: `coverage/lcov-report/index.html`
 - JSON coverage summary: `coverage/coverage-summary.json`
 
 **Status Badge:**
+
 ```markdown
 ![Tests](https://github.com/hirokr/devops-acquisitions/actions/workflows/tests.yml/badge.svg)
 ```
@@ -67,10 +75,12 @@ This directory contains GitHub Actions workflows for automated testing, linting,
 **Purpose:** Builds multi-platform Docker images and pushes them to Docker Hub.
 
 **Triggers:**
+
 - Push to `main` branch
 - Manual trigger via `workflow_dispatch`
 
 **What it does:**
+
 1. Sets up Docker Buildx for multi-platform builds
 2. Logs in to Docker Hub using secrets
 3. Extracts metadata for tags and labels
@@ -84,12 +94,14 @@ This directory contains GitHub Actions workflows for automated testing, linting,
 7. Generates a comprehensive summary with pull/run commands
 
 **Tags Generated:**
+
 - `your-dockerhub-username/devops-acquisitions:main`
 - `your-dockerhub-username/devops-acquisitions:main-abc1234`
 - `your-dockerhub-username/devops-acquisitions:latest`
 - `your-dockerhub-username/devops-acquisitions:prod-20251006-103000`
 
 **Status Badge:**
+
 ```markdown
 ![Docker Build](https://github.com/hirokr/devops-acquisitions/actions/workflows/docker-build-and-push.yml/badge.svg)
 ```
@@ -112,6 +124,7 @@ To use these workflows, you need to configure the following secrets in your GitH
    - Go to: Settings → Secrets and variables → Actions → New repository secret
 
 **Setting up secrets:**
+
 ```bash
 # Navigate to your GitHub repository
 # Go to: Settings → Secrets and variables → Actions → New repository secret
@@ -125,23 +138,27 @@ To use these workflows, you need to configure the following secrets in your GitH
 ### Running Workflows Locally (Testing)
 
 **Test linting:**
+
 ```bash
 npm run lint
 npm run format:check
 ```
 
 **Test with fixes:**
+
 ```bash
 npm run lint:fix
 npm run format
 ```
 
 **Run tests:**
+
 ```bash
 npm test
 ```
 
 **Build Docker image locally:**
+
 ```bash
 docker build -t devops-acquisitions:local --target production .
 ```
@@ -181,21 +198,25 @@ Add these badges to your main `README.md`:
 ### Common Issues
 
 **1. Lint/Format workflow fails**
+
 - Run `npm run lint:fix` and `npm run format` locally
 - Commit and push the fixes
 
 **2. Tests workflow fails**
+
 - Run `npm test` locally to reproduce
 - Check test logs in GitHub Actions for specific failures
 - Fix failing tests and push changes
 
 **3. Docker build fails**
+
 - Verify `DOCKER_USERNAME` and `DOCKER_PASSWORD` secrets are set correctly
 - Check Dockerfile syntax
 - Ensure all required files are present in the repository
 - Test build locally: `docker build -t test --target production .`
 
 **4. Docker login fails**
+
 - Verify Docker Hub credentials
 - Consider using an access token instead of password
 - Check if Docker Hub account is active
@@ -220,12 +241,14 @@ Add these badges to your main `README.md`:
 ## 🎯 Best Practices
 
 1. **Always run tests locally before pushing**
+
    ```bash
    npm run lint
    npm test
    ```
 
 2. **Create feature branches for new development**
+
    ```bash
    git checkout -b feature/my-new-feature
    ```
@@ -239,6 +262,7 @@ Add these badges to your main `README.md`:
    - Fix failures promptly
 
 5. **Keep dependencies updated**
+
    ```bash
    npm outdated
    npm update
@@ -262,7 +286,7 @@ on:
     branches:
       - main
       - staging
-      - develop  # Add new branch
+      - develop # Add new branch
 ```
 
 ### Changing Node.js Version
@@ -273,7 +297,7 @@ Update the `node-version` in workflow files:
 - name: Setup Node.js
   uses: actions/setup-node@v4
   with:
-    node-version: '20.x'  # Change version here
+    node-version: '20.x' # Change version here
 ```
 
 ### Adding Environment Variables
@@ -284,7 +308,7 @@ Add more environment variables in the test workflow:
 env:
   NODE_ENV: test
   DATABASE_URL: postgres://test:test@localhost:5432/testdb
-  MY_CUSTOM_VAR: value  # Add custom variables
+  MY_CUSTOM_VAR: value # Add custom variables
 ```
 
 ---
