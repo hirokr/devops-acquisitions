@@ -1,6 +1,5 @@
 import logger from '#config/logger.js';
-import database from '#config/database.js';
-const { db } = database;
+import { db } from '#config/database.js';
 import { users } from '#models/user.model.js';
 import { eq } from 'drizzle-orm';
 

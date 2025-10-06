@@ -78,3 +78,9 @@
 {"level":"info","message":"::1 - - [06/Oct/2025:10:04:04 +0000] \"GET /health HTTP/1.1\" 200 75 \"-\" \"-\"","service":"acquisition-api","timestamp":"2025-10-06T10:04:04.946Z"}
 {"level":"info","message":"::1 - - [06/Oct/2025:10:04:35 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"-\"","service":"acquisition-api","timestamp":"2025-10-06T10:04:35.211Z"}
 {"level":"info","message":"::1 - - [06/Oct/2025:10:05:05 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"-\"","service":"acquisition-api","timestamp":"2025-10-06T10:05:05.443Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [06/Oct/2025:10:27:33 +0000] \"GET /health HTTP/1.1\" 200 73 \"-\" \"-\"","service":"acquisition-api","timestamp":"2025-10-06T10:27:33.949Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [06/Oct/2025:10:27:34 +0000] \"GET /api HTTP/1.1\" 200 41 \"-\" \"-\"","service":"acquisition-api","timestamp":"2025-10-06T10:27:34.095Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [06/Oct/2025:10:27:34 +0000] \"GET /nonexsistent HTTP/1.1\" 404 27 \"-\" \"-\"","service":"acquisition-api","timestamp":"2025-10-06T10:27:34.241Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [06/Oct/2025:10:32:28 +0000] \"GET /health HTTP/1.1\" 200 74 \"-\" \"-\"","service":"acquisition-api","timestamp":"2025-10-06T10:32:28.624Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [06/Oct/2025:10:32:28 +0000] \"GET /api HTTP/1.1\" 200 42 \"-\" \"-\"","service":"acquisition-api","timestamp":"2025-10-06T10:32:28.858Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [06/Oct/2025:10:32:29 +0000] \"GET /nonexsistent HTTP/1.1\" 404 27 \"-\" \"-\"","service":"acquisition-api","timestamp":"2025-10-06T10:32:29.251Z"}
